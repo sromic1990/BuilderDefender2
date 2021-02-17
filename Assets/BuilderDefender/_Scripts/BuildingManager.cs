@@ -1,21 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BuildingManager : MonoBehaviour
 {
     private BuildingTypeSO buildingType;
     private BuildingTypeListSO buildingTypeList;
     private Camera mainCamera;
-    
-    void Start()
+
+    private void Awake()
     {
-        buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeSO).Name);
-        buildingType = buildingTypeList.list[0];
+        buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name);
+        buildingType = buildingTypeList.list[0];   
+    }
+    
+    private void Start()
+    {
         mainCamera = Camera.main;
     }
     
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
